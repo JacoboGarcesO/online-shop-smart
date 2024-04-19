@@ -11,6 +11,7 @@
   background-color: #449985ab;
   padding-block: 20px;
   position: sticky;
+  z-index: 2;
   top: 0;
   left: 0;
   animation: enhance-header linear both;
@@ -26,6 +27,7 @@
 .header__container {
   max-width: 1110px;
   margin: 0 auto;
+  padding-inline: 25px;
   justify-content: space-between;
 }
 
