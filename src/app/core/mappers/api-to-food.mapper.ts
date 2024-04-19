@@ -12,7 +12,12 @@ export class ApiToFoodMapper implements IMapperIn<IFood> {
       name: payload.name,
       description: payload.description,
       price: payload.price,
-      stock: payload.stock
+      stock: payload.stock,
+      image: {
+        alt: payload.image.alt,
+        id: payload.image.id,
+        src: payload.image.src,
+      }
     };
   }
 }

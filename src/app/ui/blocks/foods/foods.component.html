@@ -1,0 +1,10 @@
+<section class="foods" id="top-foods">
+  <h2 class="foods__title">Top foods</h2>
+  <h3 class="foods__subtitle">You can find the most purchased foods here</h3>
+
+  <section class="foods__container">
+    @for(food of foods; track food.id) {
+      <app-food [food]="food" />
+    }
+  </section>
+</section>

@@ -8,44 +8,39 @@ import { IMapperOut } from '../../models/mapper.model';
 })
 export class HttpService {
   constructor(
-    private readonly http: HttpClient,
+    private readonly http: HttpClient
   ) { }
 
-  get headers(): HttpHeaders {
-    return new HttpHeaders()
-      .append('Content-Type', 'application/json');
-  }
-
-  get<T>(url: string): Observable<T> {
+  get<T>(url: string, headers: HttpHeaders): Observable<T> {
     return this.http.get<T>(url, {
-      headers: this.headers
+      headers,
     })
       .pipe(
         catchError((error) => throwError(() => ({ error })))
       );
   }
 
-  post<T>(url: string, body: T, mapper: IMapperOut<T>): Observable<T> {
+  post<T>(url: string, body: T, mapper: IMapperOut<T>, headers: HttpHeaders): Observable<T> {
     return this.http.post<T>(url, JSON.stringify(mapper.map(body)), {
-      headers: this.headers
+      headers,
     })
       .pipe(
         catchError((error) => throwError(() => ({ error })))
       );
   }
 
-  put<T>(url: string, body: T, mapper: IMapperOut<T>): Observable<T> {
+  put<T>(url: string, body: T, mapper: IMapperOut<T>, headers: HttpHeaders): Observable<T> {
     return this.http.put<T>(url, JSON.stringify(mapper.map(body)), {
-      headers: this.headers
+      headers,
     })
       .pipe(
         catchError((error) => throwError(() => ({ error })))
       );
   }
 
-  delete<T>(url: string): Observable<T> {
+  delete<T>(url: string, headers: HttpHeaders): Observable<T> {
     return this.http.delete<T>(url, {
-      headers: this.headers
+      headers,
     })
       .pipe(
         catchError((error) => throwError(() => ({ error })))
