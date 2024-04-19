@@ -1,0 +1,11 @@
+.layout-home {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-inline: 25px;
+  display: flex;
+  flex-direction: column;
+  
+  *:not(:first-child) {
+    gap: 50px;
+  }
+}

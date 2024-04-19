@@ -1,1 +1,23 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__container">
+    <a class="header__brand" href="#">
+      <app-icon [icon]="'lemon'" [size]="40" />
+      <h1 class="header__title">Shood</h1>
+    </a>
+  
+    <nav class="header__navigation">
+      <ul class="header__menu">
+        <app-item-menu [text]="'Home'" [section]="''" />
+        <app-item-menu [text]="'Top foods'" [section]="'top-foods'" />
+        <app-item-menu [text]="'All foods'" [section]="'all-foods'" />
+        <app-item-menu [text]="'Reviews'" [section]="'reviews'" />
+      </ul>
+  
+      @if (currentUser) {
+        <app-profile-picture [picture]="'https://unavatar.io/github/mdo'" [userName]="'Mdo'"/>
+      } @else {
+        <app-button [text]="'Iniciar sesión'" />
+      }
+    </nav>
+  </div>
+</header>

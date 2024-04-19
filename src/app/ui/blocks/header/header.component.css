@@ -1,0 +1,47 @@
+.header__menu,
+.header__navigation,
+.header__brand,
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header {
+  background-color: #449985ab;
+  padding-block: 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  animation: enhance-header linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 200px;
+}
+
+.header__title {
+  color: #FFF;
+  font-size: 40px;
+}
+
+.header__container {
+  max-width: 1110px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.header__menu {
+  list-style: none;
+}
+
+.header__brand {
+  cursor: pointer;
+  gap: 10px;
+  text-decoration: none;
+}
+
+@keyframes enhance-header {
+  to {
+    backdrop-filter: blur(20px);
+    box-shadow: 0px -2px 20px 1px rgba(0,0,0,0.25);
+  }
+}

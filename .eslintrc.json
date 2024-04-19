@@ -33,9 +33,18 @@
         ],
         "@typescript-eslint/no-explicit-any": "off",
         "no-multiple-empty-lines": "error",
-        "indent": ["error", 2],
-        "semi": ["error", "always"],
-        "quotes": ["error", "single"]
+        "indent": [
+          "error",
+          2
+        ],
+        "semi": [
+          "error",
+          "always"
+        ],
+        "quotes": [
+          "error",
+          "single"
+        ]
       }
     },
     {
@@ -46,7 +55,7 @@
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
-      "rules": { }
+      "rules": {}
     }
   ]
 }
