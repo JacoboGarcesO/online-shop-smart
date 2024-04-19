@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { StateModel } from '../models/state.model';
+import { IState } from '../models/state.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateFactory {
   
-  state<T>(subject$: BehaviorSubject<T>): StateModel<T> {
+  state<T>(subject$: BehaviorSubject<T>): IState<T> {
     return {
       $: () => subject$.asObservable(),
       snapshot: () => this.copyPayload(subject$.getValue()),

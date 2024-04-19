@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-export interface StateModel<T> {
+export interface IState<T> {
     $: () => Observable<T>;
     snapshot: () => T;
     set: (payload: T) => void;

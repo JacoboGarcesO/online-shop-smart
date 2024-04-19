@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+import { IMapperOut } from '../../models/mapper.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,8 @@ export class HttpService {
       );
   }
 
-  post<T>(url: string, body: string): Observable<T> {
-    return this.http.post<T>(url, body, {
+  post<T>(url: string, body: T, mapper: IMapperOut<T>): Observable<T> {
+    return this.http.post<T>(url, JSON.stringify(mapper.map(body)), {
       headers: this.headers
     })
       .pipe(
@@ -33,8 +34,8 @@ export class HttpService {
       );
   }
 
-  put<T>(url: string, body: string): Observable<T> {
-    return this.http.put<T>(url, body, {
+  put<T>(url: string, body: T, mapper: IMapperOut<T>): Observable<T> {
+    return this.http.put<T>(url, JSON.stringify(mapper.map(body)), {
       headers: this.headers
     })
       .pipe(
