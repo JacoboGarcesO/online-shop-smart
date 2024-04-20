@@ -18,7 +18,7 @@ export class TopProductsContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.facade.initSubsciptions();
-    this.facade.getFoods();
+    // this.facade.getFoods();
     this.initializeSubscriptions();
   }
 

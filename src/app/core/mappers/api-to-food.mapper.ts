@@ -11,6 +11,7 @@ export class ApiToFoodMapper implements IMapperIn<IFood> {
       id: payload.id,
       name: payload.name,
       description: payload.description,
+      originalPrice: payload.originalPrice,
       price: payload.price,
       stock: payload.stock,
       image: {

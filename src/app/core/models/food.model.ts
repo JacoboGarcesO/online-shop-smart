@@ -5,6 +5,7 @@ export interface IFood {
   name: string;
   description: string;
   price: number;
+  originalPrice: number;
   stock: number;
   image: IImage;
 }

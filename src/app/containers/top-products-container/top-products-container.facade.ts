@@ -1,4 +1,4 @@
-import { Observable, Subscription, tap } from 'rxjs';
+import { Observable, Subscription, map, tap } from 'rxjs';
 import { AppState } from '../../core/state/app.state';
 import { Injectable } from '@angular/core';
 import { FoodService } from '../../core/services/food.service';
@@ -17,7 +17,9 @@ export class UserListContainerFacade {
 
   //#region observables
   foods$(): Observable<IFood[]> {
-    return this.state.food.foods.$();
+    return this.state.food.foods.$().pipe(
+      map((foods: IFood[]) => foods.sort((foodA: IFood, foodB: IFood) => foodA.price - foodB.price).slice(0, 4)),
+    );
   }
   //#endregion
 

@@ -1,3 +1,14 @@
-<article>
-  {{food | json}}
+<article class="food">
+  <img class="food__image" [src]="food.image.src" [alt]="food.image.alt">
+
+  <div class="food__container">
+    <h4 class="food__name">{{food.name}}</h4>
+    <div>
+      <p class="food__original-price">${{food.originalPrice}}</p>
+      <div class="food__price-container">
+        <p class="food__price">${{food.price}}</p>
+        <span class="food__discount">50% OFF</span>
+      </div>
+    </div>
+  </div>
 </article>
