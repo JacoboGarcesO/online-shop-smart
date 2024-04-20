@@ -1,1 +1,35 @@
-<p>footer works!</p>
+<footer class="footer">
+  <div class="footer__container">
+    <a class="footer__brand" href="#">
+      <app-icon [icon]="'lemon'" [size]="40" />
+    </a>
+
+    <span class="footer__copy">© 2024 Jacobo Garcés. Some copyright.</span>
+
+
+    <nav class="footer__navigation">
+      <ul class="footer__menu">
+        <li>
+          <a href="https://www.pexels.com">
+            <img class="footer__image" src="https://images.pexels.com/lib/api/pexels-white.png" alt="Pexels icon">
+          </a>
+        </li>
+        <li>
+          <a href="https://unsplash.com">
+            <app-icon [icon]="'unsplash'" [size]="30" />
+          </a>
+        </li>
+        <li>
+          <a href="https://mockapi.io">
+            <span class="footer__mockapi">mock.api</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://firebase.google.com">
+            <img class="footer__image--firebase" src="/assets/icons/firebase.svg" alt="Firebase icon">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>
