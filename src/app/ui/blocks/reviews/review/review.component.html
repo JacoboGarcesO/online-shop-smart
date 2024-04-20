@@ -1,0 +1,15 @@
+<article class="review">
+  <header class="review__header">
+    <img class="review__image" [src]="review.userProfileImage" [alt]="'User profile image for' + review.userFullName">
+
+    <div>
+      <h4 class="review__user">{{review.userFullName}}</h4>
+      <div class="review__stars">
+        @for (star of stars; track $index) {
+          <app-icon [icon]="star" />
+        }
+      </div>
+    </div>
+  </header>
+  <p class="review__content">{{review.review}}</p>
+</article>

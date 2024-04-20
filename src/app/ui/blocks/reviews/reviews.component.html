@@ -1,0 +1,12 @@
+<section class="reviews" id="reviews">
+  <h2 class="reviews__title">Reviews</h2>
+  <h3 class="reviews__subtitle">¿What says our clients?</h3>
+
+  <section class="reviews__wrapper">
+    <section class="reviews__container">
+      @for(review of reviews; track review.id) {
+        <app-review class="review__item" [review]="review" />
+      }
+    </section>
+  </section>
+</section>

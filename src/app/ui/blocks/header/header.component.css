@@ -55,7 +55,7 @@
 
   .header__navigation {
     justify-content: center;
-    position: absolute;
+    position: fixed;
     transition: right 0.3s ease-in-out;
     top: 0;
     right: -100%;
