@@ -31,6 +31,8 @@
   align-items: center;
   justify-content: center;
   transition: top 0.2s ease-in;
+  padding: 10px;
+  text-align: center;
 }
 
 .grid-images__title {
@@ -41,5 +43,15 @@
 .grid-images__item:hover {
    > .grid-images__detail {
     top: 0;
+  }
+}
+
+@media (width <= 720px) {
+  .grid-images {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid-images__item {
+    grid-column: auto !important;
   }
 }

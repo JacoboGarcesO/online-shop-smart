@@ -5,11 +5,11 @@
       <h1 class="header__title">Shood</h1>
     </a>
   
-    <nav class="header__navigation">
+    <nav class="header__navigation" [ngClass]="{ 'header__navigation--visible' : isMenuOpen }">
       <ul class="header__menu">
-        <app-item-menu [text]="'Home'" [section]="''" />
-        <app-item-menu [text]="'Top foods'" [section]="'top-foods'" />
-        <app-item-menu [text]="'Reviews'" [section]="'reviews'" />
+        <app-item-menu (clicked)="handleToggleMenu()" [text]="'Home'" [section]="''" />
+        <app-item-menu (clicked)="handleToggleMenu()" [text]="'Top foods'" [section]="'top-foods'" />
+        <app-item-menu (clicked)="handleToggleMenu()" [text]="'Reviews'" [section]="'reviews'" />
       </ul>
   
       @if (currentUser) {
@@ -18,5 +18,6 @@
         <app-button [text]="'Iniciar sesión'" />
       }
     </nav>
+    <app-icon class="header__open" (click)="handleToggleMenu()" [icon]="isMenuOpen ? 'times' : 'menu'" [size]="40" />
   </div>
 </header>

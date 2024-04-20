@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -11,4 +11,9 @@ import { RouterLink } from '@angular/router';
 export class ItemMenuComponent {
   @Input() section: string;
   @Input() text: string;
+  @Output() clicked: EventEmitter<void> = new EventEmitter();
+
+  handleClick(): void {
+    this.clicked.emit();
+  }
 }

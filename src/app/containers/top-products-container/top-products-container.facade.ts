@@ -18,7 +18,7 @@ export class UserListContainerFacade {
   //#region observables
   foods$(): Observable<IFood[]> {
     return this.state.food.foods.$().pipe(
-      map((foods: IFood[]) => foods.sort((foodA: IFood, foodB: IFood) => foodA.price - foodB.price).slice(0, 4)),
+      map((foods: IFood[]) => foods?.sort((foodA: IFood, foodB: IFood) => foodA.price - foodB.price)?.slice(0, 4)),
     );
   }
   //#endregion

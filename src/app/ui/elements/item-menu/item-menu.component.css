@@ -7,3 +7,9 @@
 .item-menu__link:hover {
   color: #dbdbdb;
 }
+
+@media (width <=720px) {
+  .item-menu__link {
+    font-size: 20px;
+  }
+}
