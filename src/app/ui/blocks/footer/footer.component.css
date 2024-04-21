@@ -1,6 +1,7 @@
 .footer__menu,
 .footer__navigation,
-.footer__container {
+.footer__container,
+.footer__brand {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -53,7 +54,8 @@
 @media (width <=720px) {
 
   .footer__container,
-  .header__menu {
+  .header__menu,
+  .footer__brand {
     flex-direction: column;
   }
 }
