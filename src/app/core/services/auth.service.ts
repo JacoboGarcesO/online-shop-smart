@@ -31,4 +31,10 @@ export class AuthService {
   logOut(): Observable<void> {
     return from(signOut(this.auth));
   }
+
+  getCurrentUser(): Observable<IUser> {
+    return from(this.auth.authStateReady()).pipe(
+      map(() => this.mapper.map({ user: this.auth.currentUser}))
+    );
+  }
 }
