@@ -1,14 +1,16 @@
 <section class="reviews" id="reviews">
-  <h2 class="reviews__title">Reviews</h2>
+  <h2 class="reviews__title">Top reviews</h2>
   <h3 class="reviews__subtitle">¿What says our clients?</h3>
 
   <section class="reviews__wrapper" #wrapper>
     <app-icon class="reviews__arrow-left" [icon]="'arrow-left'" (click)="moveToLeft()" />
-    <section class="reviews__container">
+
+    <section class="reviews__container" #container>
       @for(review of reviews; track review.id) {
         <app-review class="review__item" [review]="review" />
       }
     </section>
+
     <app-icon class="reviews__arrow-right" [icon]="'arrow-right'" (click)="moveToRight()" />
   </section>
 </section>

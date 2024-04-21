@@ -15,3 +15,9 @@
 .button:hover {
   background: #379882ab;
 }
+
+.button--form {
+  background: #6BAF8D;
+  border: 0;
+  width: 100%;
+}

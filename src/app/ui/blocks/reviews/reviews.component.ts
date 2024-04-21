@@ -12,21 +12,22 @@ import { IconComponent } from '../../elements/icon/icon.component';
 })
 export class ReviewsComponent {
   @ViewChild('wrapper') carousel: ElementRef;
+  @ViewChild('container') container: ElementRef;
   @Input() reviews: IReview[];
+  private readonly CARD_WIDTH = 310;
 
   moveToRight(): void {
     this.carousel.nativeElement.scrollTo({
       top: 0,
-      left: this.carousel.nativeElement.scrollLeft + 300,
+      left: this.carousel.nativeElement.scrollLeft + this.CARD_WIDTH,
       behavior: 'smooth'
     });
-    
   }
 
   moveToLeft(): void {
     this.carousel.nativeElement.scrollTo({
       top: 0,
-      left: this.carousel.nativeElement.scrollLeft - 300,
+      left: this.carousel.nativeElement.scrollLeft - this.CARD_WIDTH,
       behavior: 'smooth'
     });
   }

@@ -1,3 +1,7 @@
 <li class="item-menu">
-  <a class="item-menu__link" (click)="handleClick()" [href]="'#' + section">{{text}}</a>
+  @if (isLink) {
+    <a class="item-menu__link" (click)="handleClick()" [routerLink]="'/' + section">{{text}}</a>
+  } @else {
+    <a class="item-menu__link" (click)="handleClick()" [href]="'#' + section">{{text}}</a>
+  }
 </li>

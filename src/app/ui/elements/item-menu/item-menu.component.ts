@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 export class ItemMenuComponent {
   @Input() section: string;
   @Input() text: string;
+  @Input() isLink: boolean = false;
   @Output() clicked: EventEmitter<void> = new EventEmitter();
 
   handleClick(): void {

@@ -1,0 +1,31 @@
+.footer-login, .footer-login__menu {
+  display: flex;
+  align-items: center;
+}
+
+.footer-login__menu {
+  list-style: none;
+  gap: 20px;
+}
+
+.footer-login {
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer-login__link {
+  text-decoration: none;
+}
+
+.footer-login__copy, .footer-login__link  {
+  color: #616161;
+  font-size: 16px;
+}
+
+@media (width <=720px) {
+  .footer-login {
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

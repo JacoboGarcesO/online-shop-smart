@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() text: string;
+  @Input() type: 'default' | 'form' = 'default';
   @Input() size: number = 20;
   @Output() clicked: EventEmitter<void> = new EventEmitter();
 
