@@ -15,7 +15,7 @@
       @if (currentUser) {
         <app-profile-picture [picture]="'https://unavatar.io/github/mdo'" [userName]="'Mdo'"/>
       } @else {
-        <app-button [text]="'Iniciar sesión'" />
+        <app-button [text]="'Iniciar sesión'" [size]="18" />
       }
     </nav>
     <app-icon class="header__open" (click)="handleToggleMenu()" [icon]="isMenuOpen ? 'times' : 'menu'" [size]="40" />

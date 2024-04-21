@@ -5,6 +5,8 @@
 
 .reviews {
   margin-top: 60px;
+  scroll-margin-top: 80px;
+  position: relative;
 }
 
 .reviews__title {
@@ -24,13 +26,34 @@
 
 .reviews__wrapper {
   overflow-x: scroll;
-  padding: 30px;
-
-  ::-webkit-scrollbar {
-    width: 0; 
-  }
+  padding: 15px;
 }
 
 .reviews__wrapper::-webkit-scrollbar {
-  width: 0; 
+  width: 0;
+  display: none;
+}
+
+.reviews__arrow-left,
+.reviews__arrow-right {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #6BAF8D;
+  top: 50%;
+  transform: translateY(50%);
+  cursor: pointer;
+}
+
+.reviews__arrow-left {
+  left: -15px;
+}
+
+.reviews__arrow-right {
+  right: -15px;
 }
