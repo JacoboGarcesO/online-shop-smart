@@ -6,3 +6,13 @@
   flex-direction: column;
   gap: 30px;
 }
+
+.login__error {
+  border: 1px red solid;
+  background-color: #f9b8b8b1;
+  color: red;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+}

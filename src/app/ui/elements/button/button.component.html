@@ -3,4 +3,9 @@
   [style]="'font-size: {{size}}px;'"
   (click)="handleClick()"
   [disabled]="isDisabled"
->{{text}}</button>
+>
+  @if (isLoading) {
+    <app-loader />
+  }
+  {{text}}
+</button>

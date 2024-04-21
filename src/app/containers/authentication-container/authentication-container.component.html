@@ -1,2 +1,7 @@
-<app-login (formSubmitted)="loginWithCredentials($event)" (googleSignInEvent)="loginWithGoogle()" />
+<app-login
+  [isLoading]="isLoading$ | async"
+  [loginError]="loginError$ | async"
+  (formSubmitted)="loginWithCredentials($event)"
+  (googleSignInEvent)="loginWithGoogle()"
+/>
 <app-footer-login />

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUserCredentials } from '../../../core/models/user.model';
 import { GoogleButtonComponent } from '../../elements/google-button/google-button.component';
 import { IconComponent } from '../../elements/icon/icon.component';
@@ -11,7 +11,9 @@ import { LoginFormComponent } from '../../forms/login-form/login-form.component'
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent { 
+export class LoginComponent {
+  @Input() loginError: string;
+  @Input() isLoading: boolean;
   @Output() formSubmitted: EventEmitter<IUserCredentials> = new EventEmitter();
   @Output() googleSignInEvent: EventEmitter<void> = new EventEmitter();
 

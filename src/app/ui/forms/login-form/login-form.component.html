@@ -3,5 +3,11 @@
     <app-input [label]="'Email'" formControlName="email" [formControl]="loginForm.controls.email" />
     <app-input [label]="'Password'" [type]="'password'" formControlName="password" [formControl]="loginForm.controls.password" />
   </fieldset>
-  <app-button [text]="'Sign in'" type="form" (clicked)="handleSubmitForm()" [isDisabled]="!loginForm.valid" />
+  <app-button
+    [isLoading]="isLoading"
+    [text]="'Sign in'"
+    [isDisabled]="!loginForm.valid"
+    [type]="'form'"
+    (clicked)="handleSubmitForm()"
+  />
 </form>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { environment } from '../../../environments/environment';
-import { Observable, from, map } from 'rxjs';
+import { Observable, catchError, from, map, throwError } from 'rxjs';
 import { IUser, IUserCredentials } from '../models/user.model';
 import { ApiToUserMapper } from '../mappers/api-to-user.mapper';
 
@@ -17,14 +17,16 @@ export class AuthService {
 
   loginWithCredentials(credentials: IUserCredentials): Observable<IUser> {
     return from(signInWithEmailAndPassword(this.auth, credentials.email, credentials.password)).pipe(
-      map((response) => this.mapper.map(response))
+      map((response) => this.mapper.map(response)),
+      catchError((error) => throwError(() => ({ error })))
     );
   }
 
   loginWithGoogle(): Observable<IUser> {
     const provider = new GoogleAuthProvider();
     return from(signInWithPopup(this.auth, provider)).pipe(
-      map((response) => this.mapper.map(response))
+      map((response) => this.mapper.map(response)),
+      catchError((error) => throwError(() => ({ error })))
     );
   }
 
@@ -34,7 +36,8 @@ export class AuthService {
 
   getCurrentUser(): Observable<IUser> {
     return from(this.auth.authStateReady()).pipe(
-      map(() => this.mapper.map({ user: this.auth.currentUser}))
+      map(() => this.mapper.map({ user: this.auth.currentUser})),
+      catchError((error) => throwError(() => ({ error })))
     );
   }
 }

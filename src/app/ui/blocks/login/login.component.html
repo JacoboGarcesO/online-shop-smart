@@ -1,6 +1,12 @@
 <section class="login">
   <app-icon [icon]="'lemon'" [size]="70" [color]="'#6BAF8D'"/>
   <h1>Sign in to Shood</h1>
-  <app-login-form (formSubmitted)="handleSubmitForm($event)" />
+  @if (loginError) {
+    <span class="login__error">{{loginError}}</span>
+  }
+  <app-login-form
+    [isLoading]="isLoading"
+    (formSubmitted)="handleSubmitForm($event)"
+  />
   <app-google-button (clicked)="googleSignIn()" />
 </section>

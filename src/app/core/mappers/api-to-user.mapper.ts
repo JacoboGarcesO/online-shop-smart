@@ -7,11 +7,13 @@ import { IUser } from '../models/user.model';
 })
 export class ApiToUserMapper implements IMapperIn<IUser> {
   map(payload: any): IUser {
+    if (payload.user === null) return null;
+  
     return {
-      email: payload.user.email,
-      id: payload.user.uid,
-      name: payload.user.displayName,
-      photoUrl: payload.user.photoURL,
+      email: payload.user?.email,
+      id: payload.user?.uid,
+      name: payload.user?.displayName,
+      photoUrl: payload.user?.photoURL,
     };
   }
 }

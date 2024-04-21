@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { InputComponent } from '../controls/input/input.component';
 import { ButtonComponent } from '../../elements/button/button.component';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -13,6 +13,7 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
+  @Input() isLoading: boolean;
   @Output() formSubmitted: EventEmitter<IUserCredentials> = new EventEmitter();
 
   loginForm = this.formBuilder.group({
