@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IReview } from '../models/review.model';
+import { IMenuItem } from '../models/menu-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,17 @@ export class ResourcesService {
         review: 'Esta tienda de alimentos es mi lugar favorito para hacer compras. Tienen todo lo que necesito, desde productos frescos hasta alimentos gourmet. Me encanta la selección de quesos y vinos que ofrecen, así como la sección de panadería, que siempre huele increíble. El personal es amable y conocedor, y siempre está dispuesto a ayudar. Los precios pueden ser un poco altos, pero creo que vale la pena por la calidad de los productos. Definitivamente recomendaría esta tienda a cualquier persona que busque alimentos de alta calidad y una experiencia de compra agradable.',
         userProfileImage: 'https://i.pravatar.cc/150?u=5a7e4c7f-18d7-40c5-a26e-42e6de124aa1',
         rating: 5
+      }
+    ]);
+  }
+
+  getMenuItems(): Observable<IMenuItem[]> {
+    return of([
+      {
+        text: 'Foods',
+        icon: 'lemon',
+        section: 'admin',
+        isLink: true
       }
     ]);
   }

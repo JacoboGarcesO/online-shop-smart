@@ -1,0 +1,28 @@
+<app-icon class="aside__toggle" (click)="handleToggleMenu()" [icon]="isVisible ? 'arrow-left' : 'arrow-right'" [size]="20" />
+
+<article class="aside" [ngClass]="{ 'aside--visible' : isVisible }">
+  <div class="aside__container">
+    <div>
+      <header>
+        <a class="aside__header" routerLink="/">
+          <app-icon [icon]="'lemon'" />
+          <h1>Shood</h1>
+        </a>
+      </header>
+    
+      <main class="aside__main">
+        <nav class="aside__navigation">
+          <ul class="aside__menu">
+            @for (item of items; track $index) {
+              <app-item-menu [icon]="item.icon" [text]="item.text" [section]="item.section" [isLink]="item.isLink"/>
+            }
+          </ul>
+        </nav>
+      </main>
+    </div>
+  
+    <footer class="aside__footer">
+      <span class="footer__copy">© 2024 Jacobo Garcés. Some copyright.</span>
+    </footer>
+  </div>
+</article>

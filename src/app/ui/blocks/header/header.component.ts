@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation, inject } from '@angular/core';
 import { ButtonComponent } from '../../elements/button/button.component';
 import { IconComponent } from '../../elements/icon/icon.component';
 import { ItemMenuComponent } from '../../elements/item-menu/item-menu.component';
@@ -20,7 +20,8 @@ import { environment } from '../../../../environments/environment';
     RouterLink
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
   @Input() currentUser: IUser;

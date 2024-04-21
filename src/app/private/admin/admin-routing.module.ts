@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthenticationContainerComponent } from '../../containers/authentication-container/authentication-container.component';
-import { LayoutLoginComponent } from '../../ui/layouts/layout-login/layout-login.component';
+import { AsideAdminContainerComponent } from '../../containers/aside-admin-container/aside-admin-container.component';
+import { HeaderAdminContainerComponent } from '../../containers/header-admin-container/header-admin-container.component';
+import { LayoutAsideComponent } from '../../ui/layouts/layout-aside/layout-aside.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutLoginComponent,
+    component: LayoutAsideComponent,
     children: [
-      { path: '', component: AuthenticationContainerComponent },
+      { path: '', component: HeaderAdminContainerComponent, outlet: 'header' },
+      { path: '', component: AsideAdminContainerComponent, outlet: 'aside' },
     ]
   }
 ];

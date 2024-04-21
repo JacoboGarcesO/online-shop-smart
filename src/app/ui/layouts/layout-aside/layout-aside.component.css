@@ -1,0 +1,9 @@
+.layout-aside {
+  display: grid;
+  grid-template-columns: min-content auto;
+}
+
+.layout-aside__content {
+  max-width: 1000px;
+  margin: 0 auto;
+}

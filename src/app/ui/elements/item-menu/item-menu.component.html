@@ -1,4 +1,8 @@
 <li class="item-menu">
+  @if (icon) {
+    <app-icon [icon]="icon" [size]="20" />
+  }
+
   @if (isLink) {
     <a class="item-menu__link" (click)="handleClick()" [routerLink]="'/' + section">{{text}}</a>
   } @else {

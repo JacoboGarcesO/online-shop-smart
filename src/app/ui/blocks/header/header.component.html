@@ -17,7 +17,7 @@
   
       @if (currentUser) {
         <app-profile-picture [picture]="currentUser.photoUrl" [userName]="currentUser.name"/>
-        <app-icon class="header__logout" (click)="handleLogOut()" [icon]="'logout'" [size]="30" />
+        <app-icon class="header__logout" (click)="handleLogOut()" [icon]="'logout'" [size]="25" />
       } @else {
         <app-button [text]="'Iniciar sesión'" [size]="18" (clicked)="navigateToLogin()" />
       }
