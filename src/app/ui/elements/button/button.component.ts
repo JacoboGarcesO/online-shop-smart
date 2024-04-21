@@ -11,6 +11,7 @@ export class ButtonComponent {
   @Input() text: string;
   @Input() type: 'default' | 'form' = 'default';
   @Input() size: number = 20;
+  @Input() isDisabled: boolean;
   @Output() clicked: EventEmitter<void> = new EventEmitter();
 
   handleClick(): void {

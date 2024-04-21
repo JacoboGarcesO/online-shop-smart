@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PrivateRoutingModule } from './private-routing.module';
+import { PrivateGuard } from './private.guard';
 
 
 @NgModule({
@@ -9,6 +10,7 @@ import { PrivateRoutingModule } from './private-routing.module';
   imports: [
     CommonModule,
     PrivateRoutingModule
-  ]
+  ],
+  providers: [PrivateGuard]
 })
 export class PrivateModule { }

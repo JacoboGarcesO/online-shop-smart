@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { IUserCredentials } from '../../../core/models/user.model';
 import { GoogleButtonComponent } from '../../elements/google-button/google-button.component';
-import { LoginFormComponent } from '../../forms/login-form/login-form.component';
 import { IconComponent } from '../../elements/icon/icon.component';
+import { LoginFormComponent } from '../../forms/login-form/login-form.component';
 
 @Component({
   selector: 'app-login',
@@ -10,4 +11,15 @@ import { IconComponent } from '../../elements/icon/icon.component';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent { }
+export class LoginComponent { 
+  @Output() formSubmitted: EventEmitter<IUserCredentials> = new EventEmitter();
+  @Output() googleSignInEvent: EventEmitter<void> = new EventEmitter();
+
+  googleSignIn(): void {
+    this.googleSignInEvent.emit();
+  }
+
+  handleSubmitForm(credentials: IUserCredentials): void {
+    this.formSubmitted.emit(credentials);
+  }
+}

@@ -1,1 +1,6 @@
-<button [style]="'font-size: {{size}}px;'" class="button button--{{type}}" (click)="handleClick()">{{text}}</button>
+<button
+  class="button button--{{type}}"
+  [style]="'font-size: {{size}}px;'"
+  (click)="handleClick()"
+  [disabled]="isDisabled"
+>{{text}}</button>

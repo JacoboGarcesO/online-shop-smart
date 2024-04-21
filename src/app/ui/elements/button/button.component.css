@@ -16,6 +16,11 @@
   background: #379882ab;
 }
 
+.button:disabled {
+  background: #a2a2a2ab;
+  cursor: not-allowed
+}
+
 .button--form {
   background: #6BAF8D;
   border: 0;

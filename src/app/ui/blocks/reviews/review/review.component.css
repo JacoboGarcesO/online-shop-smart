@@ -18,10 +18,6 @@
 .review__stars {
   display: flex;
   align-items: center;
-
-  .icon {
-    background-color: rgb(255, 217, 0);
-  }
 }
 
 .review__image {

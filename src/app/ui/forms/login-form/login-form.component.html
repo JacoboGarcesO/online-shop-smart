@@ -1,7 +1,7 @@
-<form class="login-form">
+<form class="login-form" [formGroup]="loginForm">
   <fieldset class="login-form__section">
-    <app-input [label]="'Email'" />
-    <app-input [label]="'Password'" />
+    <app-input [label]="'Email'" formControlName="email" [formControl]="loginForm.controls.email" />
+    <app-input [label]="'Password'" [type]="'password'" formControlName="password" [formControl]="loginForm.controls.password" />
   </fieldset>
-  <app-button [text]="'Sign in'" type="form" />
+  <app-button [text]="'Sign in'" type="form" (clicked)="handleSubmitForm()" [isDisabled]="!loginForm.valid" />
 </form>

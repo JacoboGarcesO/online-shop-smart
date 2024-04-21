@@ -1,10 +1,12 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ButtonComponent } from '../../elements/button/button.component';
 import { IconComponent } from '../../elements/icon/icon.component';
 import { ItemMenuComponent } from '../../elements/item-menu/item-menu.component';
 import { ProfilePictureComponent } from '../../elements/profile-picture/profile-picture.component';
 import { NgClass } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { IUser } from '../../../core/models/user.model';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +23,14 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  @Input() currentUser: any;
+  @Input() currentUser: IUser;
+  @Output() logOut: EventEmitter<void> = new EventEmitter();
   public isMenuOpen: boolean = false;
   private router = inject(Router);
+
+  get isAdmin(): boolean {
+    return this.currentUser?.email === environment.adminEmail;
+  }
 
   handleToggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
@@ -31,5 +38,9 @@ export class HeaderComponent {
 
   navigateToLogin(): void {
     this.router.navigateByUrl('/auth');
+  }
+
+  handleLogOut(): void {
+    this.logOut.emit();
   }
 }

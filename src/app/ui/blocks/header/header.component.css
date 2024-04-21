@@ -45,6 +45,10 @@
   display: none;
 }
 
+.header__logout {
+  cursor: pointer;
+}
+
 @media (width <=720px) {
 
   .header__navigation,

@@ -6,7 +6,7 @@
       <h4 class="review__user">{{review.userFullName}}</h4>
       <div class="review__stars">
         @for (star of stars; track $index) {
-          <app-icon [icon]="star" />
+          <app-icon [icon]="star" [color]="'#ffd900'" />
         }
       </div>
     </div>

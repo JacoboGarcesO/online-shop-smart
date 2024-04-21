@@ -10,5 +10,6 @@ export const environment = {
   },
   apiUrl: 'https://6622071827fcd16fa6c8818c.mockapi.io/api/v1',
   pexelApiUrl: 'https://api.pexels.com/v1',
-  pexelSecretKey: 'snK2s4cFU3fQ3yalli5iIxGkNVdwBobSHNxh87oCT51sxHvTmqHd07hu'
+  pexelSecretKey: 'snK2s4cFU3fQ3yalli5iIxGkNVdwBobSHNxh87oCT51sxHvTmqHd07hu',
+  adminEmail: 'jacobogarcesoquendo@gmail.com'
 };

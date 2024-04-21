@@ -1,2 +1,2 @@
-<app-login />
+<app-login (formSubmitted)="loginWithCredentials($event)" (googleSignInEvent)="loginWithGoogle()" />
 <app-footer-login />

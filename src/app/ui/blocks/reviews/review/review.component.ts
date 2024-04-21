@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IReview } from '../../../../core/models/review.model';
 import { IconComponent } from '../../../elements/icon/icon.component';
 
@@ -7,8 +7,7 @@ import { IconComponent } from '../../../elements/icon/icon.component';
   standalone: true,
   imports: [IconComponent],
   templateUrl: './review.component.html',
-  styleUrl: './review.component.css',
-  encapsulation: ViewEncapsulation.None
+  styleUrl: './review.component.css'
 })
 export class ReviewComponent {
   @Input() review: IReview;

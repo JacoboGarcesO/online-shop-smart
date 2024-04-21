@@ -10,10 +10,14 @@
         <app-item-menu (clicked)="handleToggleMenu()" [text]="'Home'" [section]="''" [isLink]="true"/>
         <app-item-menu (clicked)="handleToggleMenu()" [text]="'Top foods'" [section]="'top-foods'" />
         <app-item-menu (clicked)="handleToggleMenu()" [text]="'Reviews'" [section]="'reviews'" />
+        @if (isAdmin) {
+          <app-item-menu (clicked)="handleToggleMenu()" [text]="'Admin'" [section]="'admin'" [isLink]="true"/>
+        }
       </ul>
   
       @if (currentUser) {
-        <app-profile-picture [picture]="'https://unavatar.io/github/mdo'" [userName]="'Mdo'"/>
+        <app-profile-picture [picture]="currentUser.photoUrl" [userName]="currentUser.name"/>
+        <app-icon class="header__logout" (click)="handleLogOut()" [icon]="'logout'" [size]="30" />
       } @else {
         <app-button [text]="'Iniciar sesión'" [size]="18" (clicked)="navigateToLogin()" />
       }
