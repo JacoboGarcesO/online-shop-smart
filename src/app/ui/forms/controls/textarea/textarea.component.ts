@@ -1,23 +1,22 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
+  selector: 'app-textarea',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.css',
+  templateUrl: './textarea.component.html',
+  styleUrl: './textarea.component.css',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => TextareaComponent),
       multi: true
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor {
+export class TextareaComponent implements ControlValueAccessor {
   @Input() label: string;
-  @Input() type: string = 'text';
   @Input() formControl: FormControl;
   public value: string;
   onChange: any = () => {};

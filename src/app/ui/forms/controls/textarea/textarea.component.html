@@ -1,0 +1,15 @@
+<label class="input">
+  <span>{{label}}</span>
+  <textarea
+    [(ngModel)]="value"
+    (ngModelChange)="onChange($event)"
+    (blur)="onTouched()"
+    required
+  ></textarea>
+
+  @if (formControl.touched) {
+    @for (item of errors; track $index) {
+      <span class="input__errors">The field is {{item}}</span>
+    }
+  }
+</label>

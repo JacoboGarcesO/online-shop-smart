@@ -1,7 +1,7 @@
 .aside {
   height: 100dvh;
   background-color: #82bbad;
-  padding: 20px;
+  padding: 10px 20px;
   box-shadow: 5px 0 rgba(130, 187, 173, 0.1);
   overflow-x: hidden;
   width: 75px;
@@ -49,12 +49,15 @@
 }
 
 :host {
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .aside__toggle {
   position: absolute;
-  top: 25px;
+  top: 10px;
   right: -10px;
   z-index: 3;
   padding: 5px;

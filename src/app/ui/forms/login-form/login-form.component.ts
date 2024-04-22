@@ -3,12 +3,11 @@ import { InputComponent } from '../controls/input/input.component';
 import { ButtonComponent } from '../../elements/button/button.component';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IUserCredentials } from '../../../core/models/user.model';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, JsonPipe],
+  imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })

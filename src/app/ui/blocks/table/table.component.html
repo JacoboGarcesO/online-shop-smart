@@ -1,0 +1,39 @@
+<div class="table__container">
+  <div class="table__scroll">
+    @if (items?.length !== 0) {
+      <table class="table__table" aria-describedby="List of items">
+        <thead class="table__thead">
+          <tr class="table__trh">
+            @for (label of headers; track $index) {
+              <th
+                class="table__th"
+                scope="col"
+                [style.width]="label[1]"
+              >
+                {{label[0]}}
+              </th>
+            }
+          </tr>
+        </thead>
+        <tbody class="table__tbody">
+          @for (item of items; track $index) {
+            <tr class="table__tr">
+              <ng-container
+                [ngTemplateOutlet]="itemTemplateRef"
+                [ngTemplateOutletContext]="{item: item, index: $index}"
+              ></ng-container>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+    @if (isLoading) {
+      <app-loader [size]="60" />
+    }
+    @if (items?.length === 0) {
+      <div class="table__not-found">
+        <span>Results not found</span>
+      </div>
+    }
+  </div>
+</div>

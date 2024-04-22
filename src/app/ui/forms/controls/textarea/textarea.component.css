@@ -7,8 +7,10 @@
     font-weight: 600;
   }
 
-  input {
+  textarea {
+    resize: none;
     border: none;
+    height: 200px;
     padding: 10px;
     border-radius: 10px;
     background-color: #dedede;
@@ -22,6 +24,6 @@
   font-size: 12px !important;
 }
 
-input:focus {
+textarea:focus {
   outline: 2px solid #6BAF8D;
 }

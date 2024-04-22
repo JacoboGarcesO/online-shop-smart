@@ -1,0 +1,46 @@
+<section class="manage-foods">
+  <h1 class="manage-foods__title">Manage foods</h1>
+  
+  <article>
+    <header class="manage-foods__header">
+      <app-button [text]="'Create'" [type]="'form'" />
+    </header>
+    <main>
+      <app-table
+          [headers]="[
+            ['Name', '3rem'],
+            ['Description', '3rem'],
+            ['Category', '3rem'],
+            ['Original price', '3rem'],
+            ['Price', '3rem'],
+            ['Stock', '3rem']
+          ]"
+        [items]="foods || []"
+        [itemTemplateRef]="foodTemplate"
+      />
+    </main>
+  </article>
+</section>
+
+<app-food-form class="manage-foods__form" />
+
+<ng-template #foodTemplate let-food="item" let-index="index">
+  <td class="manage-foods-template__td">
+    {{food.name}}
+  </td>
+  <td class="manage-foods-template__td">
+    {{food.description}}
+  </td>
+  <td class="manage-foods-template__td">
+    {{food.category}}
+  </td>
+  <td class="manage-foods-template__td">
+    {{food.originalPrice}}
+  </td>
+  <td class="manage-foods-template__td">
+    {{food.price}}
+  </td>
+  <td class="manage-foods-template__td">
+    {{food.stock}}
+  </td>
+</ng-template>

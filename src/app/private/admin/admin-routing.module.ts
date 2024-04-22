@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AsideAdminContainerComponent } from '../../containers/aside-admin-container/aside-admin-container.component';
 import { HeaderAdminContainerComponent } from '../../containers/header-admin-container/header-admin-container.component';
 import { LayoutAsideComponent } from '../../ui/layouts/layout-aside/layout-aside.component';
+import { ManageFoodsContainerComponent } from '../../containers/manage-foods-container/manage-foods-container.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HeaderAdminContainerComponent, outlet: 'header' },
       { path: '', component: AsideAdminContainerComponent, outlet: 'aside' },
+      { path: '', component: ManageFoodsContainerComponent },
     ]
   }
 ];

@@ -1,4 +1,4 @@
-import { Observable, Subscription, map, tap } from 'rxjs';
+import { Observable, Subscription, tap } from 'rxjs';
 import { AppState } from '../../core/state/app.state';
 import { Injectable } from '@angular/core';
 import { FoodService } from '../../core/services/food.service';
@@ -7,7 +7,7 @@ import { IFood } from '../../core/models/food.model';
 @Injectable({
   providedIn: 'root'
 })
-export class TopProductsContainerFacade {
+export class ManageFoodContainerFacade {
   private subscriptions: Subscription;
 
   constructor(
@@ -17,9 +17,7 @@ export class TopProductsContainerFacade {
 
   //#region observables
   foods$(): Observable<IFood[]> {
-    return this.state.food.foods.$().pipe(
-      map((foods: IFood[]) => foods?.sort((foodA: IFood, foodB: IFood) => foodA.price - foodB.price)?.slice(0, 4)),
-    );
+    return this.state.food.foods.$();
   }
   //#endregion
 
@@ -34,7 +32,7 @@ export class TopProductsContainerFacade {
 
   getFoods(): void {
     this.subscriptions.add(
-      this.foodService.getAllWithImage().pipe(
+      this.foodService.getAll().pipe(
         tap(this.state.food.foods.set.bind(this))
       ).subscribe()
     );

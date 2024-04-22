@@ -1,0 +1,14 @@
+<label class="input">
+  <span>{{label}}</span>
+  <select [(ngModel)]="value" (ngModelChange)="onChange($event)" (blur)="onTouched()" required>
+    @for (item of options; track $index) {
+      <option [value]="item">{{item}}</option>
+    }
+  </select>
+
+  @if (formControl.touched) {
+    @for (item of errors; track $index) {
+      <span class="input__errors">The field is {{item}}</span>
+    }
+  }
+</label>

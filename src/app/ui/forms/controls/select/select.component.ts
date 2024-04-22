@@ -2,22 +2,22 @@ import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
+  selector: 'app-select',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.css',
+  templateUrl: './select.component.html',
+  styleUrl: './select.component.css',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => SelectComponent),
       multi: true
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor {
+export class SelectComponent implements ControlValueAccessor {
   @Input() label: string;
-  @Input() type: string = 'text';
+  @Input() options: string[];
   @Input() formControl: FormControl;
   public value: string;
   onChange: any = () => {};

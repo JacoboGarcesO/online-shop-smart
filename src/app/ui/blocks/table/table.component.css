@@ -1,0 +1,41 @@
+.table__scroll {
+  overflow-x: auto;
+}
+
+.table__table {
+  width: 100%;
+}
+
+.table__trh {
+  text-align: center;
+}
+
+.table__th {
+  padding: 10px;
+  font-size: 14px;
+}
+
+td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+th, td {
+  border-bottom: 0.5px solid #b6b6b6;
+}
+
+tbody tr:last-of-type {
+  td {
+    border-bottom: none;
+  }
+}
+
+.table__not-found {
+  padding: 20px;
+  text-align: center;
+  background-color: #FFF;
+  border-radius: 10px;
+  width: 100%;
+}
