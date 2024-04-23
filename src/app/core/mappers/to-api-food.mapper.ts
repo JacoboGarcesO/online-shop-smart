@@ -8,11 +8,13 @@ import { IFood } from '../models/food.model';
 export class ToApiFoodMapper implements IMapperOut<IFood> {
   map(payload: IFood) {
     return {
-      id: payload.id,
+      id: payload?.id,
       name: payload.name,
       description: payload.description,
       price: payload.price,
-      stock: payload.stock
+      originalPrice: payload.originalPrice,
+      stock: payload.stock,
+      category: payload.category
     };
   }
 }

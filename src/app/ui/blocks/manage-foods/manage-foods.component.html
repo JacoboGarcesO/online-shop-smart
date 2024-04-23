@@ -3,7 +3,7 @@
   
   <article>
     <header class="manage-foods__header">
-      <app-button [text]="'Create'" [type]="'form'" />
+      <app-button [text]="'Create'" [type]="'form'" (clicked)="handleToggleForm()" />
     </header>
     <main>
       <app-table
@@ -15,6 +15,7 @@
             ['Price', '3rem'],
             ['Stock', '3rem']
           ]"
+        [isLoading]="isLoadingTable"
         [items]="foods || []"
         [itemTemplateRef]="foodTemplate"
       />
@@ -22,7 +23,14 @@
   </article>
 </section>
 
-<app-food-form class="manage-foods__form" />
+<section class="manage-foods__form" [ngClass]="{ 'manage-foods__form--visible' : isFormVisible }">
+  <app-icon class="manage-foods__toggle" (click)="handleToggleForm()" [icon]="'arrow-right'" [size]="20" />
+  <app-food-form
+    [isLoading]="isLoadingAction"
+    [currentFood]="currentFood"
+    (formSubmitted)="handleSendForm($event)"
+  />
+</section>
 
 <ng-template #foodTemplate let-food="item" let-index="index">
   <td class="manage-foods-template__td">

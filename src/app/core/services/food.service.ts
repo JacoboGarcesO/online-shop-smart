@@ -28,7 +28,7 @@ export class FoodService {
   getAll(): Observable<IFood[]> {
     const url = URL_RESOURCES.food;
     return this.http.get<IFood[]>(url, this.headers).pipe(
-      map((response) => response.map(this.apiToMapper.map))
+      map((response) => response.map(this.apiToMapper.map).reverse())
     );
   }
 

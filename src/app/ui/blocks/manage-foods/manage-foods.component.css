@@ -26,10 +26,30 @@
   display: block;
   position: fixed;
   top: 64px;
-  right: 0;
+  right: -100%;
   height: calc(100dvh - 64px);
   z-index: 4;
   background-color: #ebebeb;
   padding: 20px;
   box-shadow: 0 10px 10px 1px rgba(0,0,0,0.25);
+  transition: right 0.3s ease-in-out;
+}
+
+.manage-foods__form--visible {
+  right: 0;
+}
+
+.manage-foods__toggle {
+  position: absolute;
+  top: 8px;
+  left: -12px;
+  z-index: 3;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #6BAF8D;
+  cursor: pointer;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
 }

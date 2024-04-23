@@ -1,24 +1,49 @@
 <form class="food-form">
-  <h1>
-    @if (isCreate) {
-      Create
-    } @else {
+  <h1 class="food-form__title">
+    @if (currentFood) {
       Update
+    } @else {
+      Create
     }
     food
   </h1>
 
   <fieldset class="food-form__section">
-    <app-input [label]="'Name'" [formControl]="foodForm.controls.name" />
-    <app-select [label]="'Category'" [options]="options" [formControl]="foodForm.controls.category" />
-    <app-input [label]="'Price'" [formControl]="foodForm.controls.price" [type]="'number'" />
-    <app-input [label]="'Original price'" [formControl]="foodForm.controls.originalPrice" [type]="'number'" />
-    <app-input class="food-form__field" [label]="'Stock'" [formControl]="foodForm.controls.stock" />
-    <app-textarea class="food-form__field" [label]="'Stock'" [formControl]="foodForm.controls.stock" />
+    <app-input
+      [label]="'Name'"
+      [formControl]="foodForm.controls.name"
+    />
+    <app-select
+      [label]="'Category'"
+      [options]="options"
+      [formControl]="foodForm.controls.category"
+    />
+    <app-input
+      [label]="'Price'"
+      [formControl]="foodForm.controls.price"
+      [type]="'number'"
+    />
+    <app-input
+      [label]="'Original price'"
+      [formControl]="foodForm.controls.originalPrice"
+      [type]="'number'"
+    />
+    <app-input
+      class="food-form__field"
+      [label]="'Stock'"
+      [type]="'number'"
+      [formControl]="foodForm.controls.stock"
+    />
+    <app-textarea
+      class="food-form__field"
+      [label]="'Description'"
+      [formControl]="foodForm.controls.description"
+    />
   </fieldset>
+
   <app-button
     [isLoading]="isLoading"
-    [text]="'Sign in'"
+    [text]="'Send'"
     [isDisabled]="!foodForm.valid"
     [type]="'form'"
     (clicked)="handleSubmitForm()"

@@ -1,1 +1,9 @@
-<app-manage-foods [foods]="foods$ | async" />
+<app-manage-foods
+  [foods]="foods$ | async"
+  [isFormVisible]="isFormVisible$ | async"
+  [isLoadingAction]="isLoadingAction$ | async"
+  [isLoadingTable]="isLoadingTable$ | async"
+  [currentFood]="currentFood$ | async"
+  (toggleForm)="handleToggleForm()"
+  (sendForm)="handleSendForm($event)"
+/>

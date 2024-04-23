@@ -27,10 +27,10 @@
         </tbody>
       </table>
     }
-    @if (isLoading) {
+    @if (isLoading && items?.length === 0) {
       <app-loader [size]="60" />
     }
-    @if (items?.length === 0) {
+    @if (items?.length === 0 && !isLoading) {
       <div class="table__not-found">
         <span>Results not found</span>
       </div>

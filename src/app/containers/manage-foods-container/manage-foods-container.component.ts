@@ -13,6 +13,10 @@ import { IFood } from '../../core/models/food.model';
 })
 export class ManageFoodsContainerComponent implements OnInit, OnDestroy {
   public foods$: Observable<IFood[]>;
+  public isFormVisible$: Observable<boolean>;
+  public isLoadingTable$: Observable<boolean>;
+  public isLoadingAction$: Observable<boolean>;
+  public currentFood$: Observable<IFood>;
 
   constructor(private readonly facade: ManageFoodContainerFacade) { }
 
@@ -26,7 +30,19 @@ export class ManageFoodsContainerComponent implements OnInit, OnDestroy {
     this.facade.destroySubscriptions();
   }
 
+  handleToggleForm(): void {
+    this.facade.toggleForm();
+  }
+
+  handleSendForm(food: IFood): void {
+    this.facade.pathFood(food);
+  }
+
   private initializeSubscriptions(): void {
     this.foods$ = this.facade.foods$();
+    this.isFormVisible$ = this.facade.isFormVisible$();
+    this.isLoadingTable$ = this.facade.isLoadingTable$();
+    this.isLoadingAction$ = this.facade.isLoadingAction$();
+    this.currentFood$ = this.facade.currentFood$();
   }
 }

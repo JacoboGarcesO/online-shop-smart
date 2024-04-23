@@ -4,6 +4,10 @@
   gap: 20px;
 }
 
+.food-form__title {
+  font-size: 20px;
+}
+
 .food-form__section {
   border: none;
   display: grid;
@@ -15,7 +19,7 @@
   grid-column: 1 / 3;
 }
 
-@media (width <= 720px) {
+@media (width <=720px) {
   .food-form__section {
     grid-template-columns: repeat(1, 1fr);
   }
