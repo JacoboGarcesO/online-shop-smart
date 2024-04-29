@@ -23,6 +23,8 @@ export class CommerceFoodsContainerFacade {
         ?.filter((food: IFood) => {
           if (category === 'all') {
             return true;
+          } else if (category === 'cart') {
+            return food.quantity > 0;
           } else {
             return food.category.toLowerCase().includes(category);
           }
@@ -45,8 +47,8 @@ export class CommerceFoodsContainerFacade {
     this.subscriptions.unsubscribe();
   }
 
-  setCategory(category: string): void {
-    this.state.food.category.set(category);
+  setCategory(category: string, isCart: boolean): void {
+    this.state.food.category.set(isCart ? 'cart' : category);
   }
 
   updateFood(food: IFoodCart): void {

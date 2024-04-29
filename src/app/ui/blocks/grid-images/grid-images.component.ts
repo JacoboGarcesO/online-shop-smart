@@ -14,6 +14,6 @@ export class GridImagesComponent {
   router: Router = inject(Router);
 
   navigate(category: string): void {
-    this.router.navigateByUrl(`/commerce/${category}`);
+    this.router.navigateByUrl(`/commerce/${category}/shop`);
   }
 }

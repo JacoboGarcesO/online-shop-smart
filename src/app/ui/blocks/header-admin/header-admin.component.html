@@ -11,7 +11,7 @@
         
         @if (isCommerce) {
           <div class="header__cart-container">
-            <app-icon class="header__icon" (click)="handleLogOut()" [icon]="'shopping-cart'" [size]="25" />
+            <app-icon class="header__icon" (click)="navigate()" [icon]="'shopping-cart'" [size]="25" />
             
             @if (foodsCount) {
               <span class="header__cart">{{foodsCount}}</span>

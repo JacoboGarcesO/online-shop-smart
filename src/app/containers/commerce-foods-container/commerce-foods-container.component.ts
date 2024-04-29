@@ -18,14 +18,15 @@ export class CommerceFoodsContainerComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly facade: CommerceFoodsContainerFacade,
-    private route: ActivatedRoute
+    private readonly route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.facade.initSubsciptions();
     this.route.paramMap
       .subscribe((params: ParamMap) => {
-        this.facade.setCategory(params.get('category'));
+        const isCart = this.route.snapshot.data['isCart'];
+        this.facade.setCategory(params.get('category'), isCart);
       });
     this.initializeSubscriptions();
   }

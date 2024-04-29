@@ -1,0 +1,32 @@
+.layout-cart {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-block: 25px;
+  display: grid;
+  grid-template-columns: auto min-content;
+  gap: 25px;
+}
+
+.layout-cart__aside {
+  position: relative;
+  border-left: 0.5px solid #ccc;
+}
+
+.layout-cart__content {
+  padding-left: 25px;
+}
+
+@media (width <=720px) {
+  .layout-cart {
+    grid-template-columns: 1fr;
+    padding-inline: 25px;
+  }
+
+  .layout-cart__aside {
+    border-left: none;
+  }
+
+  .layout-cart__content {
+    padding-left: 0;
+  }
+}
