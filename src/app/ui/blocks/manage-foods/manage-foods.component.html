@@ -13,7 +13,8 @@
             ['Category', '3rem'],
             ['Original price', '3rem'],
             ['Price', '3rem'],
-            ['Stock', '3rem']
+            ['Stock', '3rem'],
+            ['Actions', '3rem']
           ]"
         [isLoading]="isLoadingTable"
         [items]="foods || []"
@@ -24,12 +25,14 @@
 </section>
 
 <section class="manage-foods__form" [ngClass]="{ 'manage-foods__form--visible' : isFormVisible }">
-  <app-icon class="manage-foods__toggle" (click)="handleToggleForm()" [icon]="'arrow-right'" [size]="20" />
-  <app-food-form
-    [isLoading]="isLoadingAction"
-    [currentFood]="currentFood"
-    (formSubmitted)="handleSendForm($event)"
-  />
+  <app-icon class="manage-foods__toggle" (click)="handleToggleForm()" [icon]="'times'" [size]="20" color="#000"/>
+  @if (isFormVisible) {
+    <app-food-form
+      [isLoading]="isLoadingAction"
+      [currentFood]="currentFood"
+      (formSubmitted)="handleSendForm($event)"
+    />
+  }
 </section>
 
 <ng-template #foodTemplate let-food="item" let-index="index">
@@ -51,4 +54,29 @@
   <td class="manage-foods-template__td">
     {{food.stock}}
   </td>
+  <td class="manage-foods-template__td manage-foods-template__td--actions">
+    <app-button class="action__update" [text]="'Edit'" [type]="'form'" (clicked)="setCurrentProduct(food); handleToggleForm()" />
+    <app-button class="action__delete" [text]="'Delete'" [type]="'form'" (clicked)="modalRef.toggleModal(); setCurrentProduct(food)" />
+  </td>
 </ng-template>
+
+<app-modal
+  [isConfirm]="false"
+  [title]="'Delete food'"
+  (cancel)="setCurrentProduct(null)"
+  (confirm)="handleDeleteFood()"
+  #modalRef
+>
+  <h2 class="food__title">Are you sure delete this food?</h2>
+  <article class="food"> 
+    <div class="food__container">
+      <h4 class="food__name">Name: {{currentFood?.name}}</h4>
+      <div>
+        <p class="food__original-price">Original price: ${{currentFood?.originalPrice}}</p>
+        <div class="food__price-container">
+          <p class="food__price">Price: ${{currentFood?.price}}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</app-modal>

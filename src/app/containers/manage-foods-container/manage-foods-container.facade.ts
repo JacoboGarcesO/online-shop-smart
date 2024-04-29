@@ -57,18 +57,40 @@ export class ManageFoodContainerFacade {
     );
   }
 
+  deleteFood(): void {
+    this.state.food.isLoadingAction.set(true);
+    const food = this.state.food.currentFood.snapshot();
+
+    this.subscriptions.add(
+      this.foodService.delete(food.id).pipe(
+        tap(this.manageDeleteFood.bind(this)),
+        tap(() => this.state.food.currentFood.set(null)),
+        finalize(() => this.state.food.isLoadingAction.set(false))
+      ).subscribe()
+    );
+  }
+
   pathFood(food: IFood): void {
     this.state.food.isLoadingAction.set(true);
-
+    console.log(food);
+    
     food?.id
       ? this.updateFood(food)
       : this.createFood(food);
   }
 
   toggleForm(): void {
-    this.state.food.isFormVisible.set(
-      !this.state.food.isFormVisible.snapshot()
-    );
+    const newFormState = !this.state.food.isFormVisible.snapshot();
+
+    if (!newFormState) {
+      this.state.food.currentFood.set(null);
+    }
+
+    this.state.food.isFormVisible.set(newFormState);
+  }
+
+  setCurrentFood(food: IFood): void {
+    this.state.food.currentFood.set(food);
   }
   //#endregion
 
@@ -76,7 +98,8 @@ export class ManageFoodContainerFacade {
   private createFood(food: IFood): void {
     this.subscriptions.add(
       this.foodService.create(food).pipe(
-        tap(this.manageFood.bind(this)),
+        tap(this.managePatchFood.bind(this)),
+        tap(() => this.state.food.isFormVisible.set(false)),
         finalize(() => this.state.food.isLoadingAction.set(false))
       ).subscribe()
     );
@@ -85,13 +108,14 @@ export class ManageFoodContainerFacade {
   private updateFood(food: IFood): void {
     this.subscriptions.add(
       this.foodService.update(food).pipe(
-        tap(this.manageFood.bind(this)),
+        tap(this.managePatchFood.bind(this)),
+        tap(() => this.state.food.isFormVisible.set(false)),
         finalize(() => this.state.food.isLoadingAction.set(false))
       ).subscribe()
     );
   }
 
-  private manageFood(food: IFood): void {
+  private managePatchFood(food: IFood): void {
     const foods = this.state.food.foods.snapshot();
     const foodIndex = foods.findIndex((_food: IFood) => _food.id === food.id);
 
@@ -100,6 +124,12 @@ export class ManageFoodContainerFacade {
       : foods[foodIndex] = food;
 
     this.state.food.foods.set(foods);
+  }
+
+  
+  private manageDeleteFood(food: IFood): void {
+    const foods = this.state.food.foods.snapshot();
+    this.state.food.foods.set(foods.filter((_food: IFood) => _food.id !== food.id));
   }
   //#endregion
 }

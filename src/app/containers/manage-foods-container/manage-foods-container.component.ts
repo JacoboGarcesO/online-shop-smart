@@ -38,6 +38,14 @@ export class ManageFoodsContainerComponent implements OnInit, OnDestroy {
     this.facade.pathFood(food);
   }
 
+  handleDeleteFood(): void {
+    this.facade.deleteFood();
+  }
+
+  setCurrentFood(food: IFood): void {
+    this.facade.setCurrentFood(food);
+  }
+
   private initializeSubscriptions(): void {
     this.foods$ = this.facade.foods$();
     this.isFormVisible$ = this.facade.isFormVisible$();

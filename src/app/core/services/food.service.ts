@@ -65,7 +65,7 @@ export class FoodService {
 
   update(food: IFood): Observable<IFood> {
     const url = URL_RESOURCES.foodWithParams(food.id);
-    return this.http.post<IFood>(url, food, this.toApiMapper, this.headers).pipe(
+    return this.http.put<IFood>(url, food, this.toApiMapper, this.headers).pipe(
       map((response) => this.apiToMapper.map(response))
     );
   }

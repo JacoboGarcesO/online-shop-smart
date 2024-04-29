@@ -1,0 +1,45 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
+  z-index: 5;
+  background-color: #0000004f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal--visible {
+  display: flex;
+}
+
+.modal__header {
+  border-bottom: 0.5px solid #ccc;
+  margin-bottom: 20px;
+  padding-block: 10px;
+}
+
+.modal__container {
+  background-color: #dcdcdc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.modal__footer {
+  border-top: 0.5px solid #ccc;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-block: 10px;
+}
+
+.action--delete {
+  .button {
+    background-color: #af776b !important;
+  }
+}

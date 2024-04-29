@@ -1,8 +1,11 @@
 .layout-aside {
-  display: grid;
-  grid-template-columns: min-content auto;
-}
-
-.layout-aside__content {
-  padding: 20px;
+  max-width: 1110px;
+  margin: 50px auto;
+  padding-inline: 25px;
+  display: flex;
+  flex-direction: column;
+  
+  *:not(:first-child) {
+    gap: 50px;
+  }
 }

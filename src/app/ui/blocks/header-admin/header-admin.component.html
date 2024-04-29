@@ -1,8 +1,15 @@
 <header class="header">
-  <nav class="header__navigation">
-    @if (currentUser) {
-      <app-profile-picture [picture]="currentUser.photoUrl" [userName]="currentUser.name" />
-      <app-icon class="header__logout" (click)="handleLogOut()" [icon]="'logout'" [size]="25" />
-    }
-  </nav>
+  <div class="header__container">
+    <a class="header__brand" routerLink="/">
+      <app-icon [icon]="'lemon'" [size]="40" />
+      <h1 class="header__title">Shood</h1>
+    </a>
+  
+    <nav class="header__navigation">
+      @if (currentUser) {
+        <app-profile-picture [picture]="currentUser.photoUrl" [userName]="currentUser.name" />
+        <app-icon class="header__logout" (click)="handleLogOut()" [icon]="'logout'" [size]="25" />
+      }
+    </nav>
+  </div>
 </header>

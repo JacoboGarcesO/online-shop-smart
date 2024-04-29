@@ -1,4 +1,6 @@
-.header__navigation, .header {
+.header__navigation,
+.header__brand,
+.header__container {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -15,7 +17,13 @@
   animation-timeline: scroll(root);
   animation-range: 0 200px;
   padding-inline: 25px;
-  justify-content: flex-end;
+}
+
+.header__container {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-inline: 25px;
+  justify-content: space-between;
 }
 
 .header__logout {
@@ -30,6 +38,16 @@
   background-color: #6BAF8D;
 }
 
+.header__title {
+  color: #FFF;
+  font-size: 40px;
+}
+
+.header__brand {
+  cursor: pointer;
+  gap: 10px;
+  text-decoration: none;
+}
 
 @keyframes enhance-header {
   to {

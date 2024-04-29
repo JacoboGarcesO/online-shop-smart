@@ -1,38 +1,37 @@
-import { DOCUMENT, NgClass } from '@angular/common';
-import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output, Renderer2, inject } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { IFood } from '../../../core/models/food.model';
 import { ButtonComponent } from '../../elements/button/button.component';
+import { IconComponent } from '../../elements/icon/icon.component';
 import { FoodFormComponent } from '../../forms/food-form/food-form.component';
 import { TableComponent } from '../table/table.component';
-import { IconComponent } from '../../elements/icon/icon.component';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-manage-foods',
   standalone: true,
-  imports: [ButtonComponent, TableComponent, FoodFormComponent, IconComponent, NgClass],
+  imports: [
+    ButtonComponent,
+    TableComponent,
+    FoodFormComponent,
+    IconComponent,
+    NgClass,
+    ModalComponent
+  ],
   templateUrl: './manage-foods.component.html',
-  styleUrl: './manage-foods.component.css'
+  styleUrl: './manage-foods.component.css',
+  encapsulation: ViewEncapsulation.None
 })
-export class ManageFoodsComponent implements AfterViewInit, OnDestroy {
+export class ManageFoodsComponent {
   @Output() toggleForm: EventEmitter<void> = new EventEmitter();
   @Output() sendForm: EventEmitter<IFood> = new EventEmitter();
+  @Output() setCurrentFood: EventEmitter<IFood> = new EventEmitter();
+  @Output() deleteFood: EventEmitter<void> = new EventEmitter();
   @Input() foods: IFood[];
   @Input() isFormVisible: boolean;
   @Input() isLoadingAction: boolean;
   @Input() isLoadingTable: boolean;
   @Input() currentFood: IFood;
-  private document = inject(DOCUMENT);
-  private renderer = inject(Renderer2);
-  private scrollEventHandler: () => void;
-  private resizeObserver: ResizeObserver;
-
-  ngAfterViewInit(): void {
-    this.initializeResizeObserver();
-  }
-
-  ngOnDestroy(): void {
-    this.scrollEventHandler();
-  }
 
   handleToggleForm(): void {
     this.toggleForm.emit();
@@ -42,13 +41,11 @@ export class ManageFoodsComponent implements AfterViewInit, OnDestroy {
     this.sendForm.emit(food);
   }
 
-  private initializeResizeObserver(): void {
-    this.resizeObserver = new ResizeObserver(entries => {
-      for (const entry of entries) {
-        const width = entry.target.getBoundingClientRect().width + 40;
-        this.renderer.setStyle(this.document.querySelector('.manage-foods'), 'width', 'calc(100dvw - ' + width + 'px');
-      }
-    });
-    this.resizeObserver.observe(this.document.querySelector('.aside'));
+  handleDeleteFood(): void {
+    this.deleteFood.emit();
+  }
+
+  setCurrentProduct(food: IFood): void {
+    this.setCurrentFood.emit(food);
   }
 }

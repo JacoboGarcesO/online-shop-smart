@@ -6,4 +6,6 @@
   [currentFood]="currentFood$ | async"
   (toggleForm)="handleToggleForm()"
   (sendForm)="handleSendForm($event)"
+  (setCurrentFood)="setCurrentFood($event)"
+  (deleteFood)="handleDeleteFood()"
 />

@@ -1,0 +1,18 @@
+<section class="modal" [ngClass]="{'modal--visible': isVisible}">
+  <section class="modal__container">
+    <header class="modal__header">
+      <h2 class="modal__title">{{title}}</h2>
+    </header>
+    <main>
+      <ng-content />
+    </main>
+    <footer class="modal__footer">
+      @if (isConfirm) {
+        <app-button [type]="'form'" [text]="'Ok'" (clicked)="handleConfirm()" />
+      } @else {
+        <app-button [type]="'form'" [text]="'Ok'" (clicked)="handleConfirm()" />
+        <app-button [type]="'form'" class="action--delete" [text]="'Cancel'" (clicked)="handleCancel()" />
+      }
+    </footer>
+  </section>
+</section>

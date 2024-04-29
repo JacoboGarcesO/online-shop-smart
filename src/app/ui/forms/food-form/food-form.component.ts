@@ -25,6 +25,7 @@ export class FoodFormComponent implements OnChanges {
   @Output() formSubmitted: EventEmitter<IFood> = new EventEmitter();
 
   foodForm = this.formBuilder.group({
+    id: [null],
     name: [null, [Validators.required]],
     description: [null, [Validators.required]],
     price: [null, [Validators.required]],
@@ -44,7 +45,7 @@ export class FoodFormComponent implements OnChanges {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['currentFood'].currentValue) {
+    if (changes['currentFood']?.currentValue) {
       this.initializeForm();
     }
   }
@@ -55,9 +56,9 @@ export class FoodFormComponent implements OnChanges {
     this.formSubmitted.emit(this.foodForm.getRawValue());
   }
 
-  
   private initializeForm(): void {
     this.foodForm.patchValue({
+      id: this.currentFood?.id as null,
       name: this.currentFood?.name as null,
       description: this.currentFood?.description as null,
       price: this.currentFood?.price  as null,
