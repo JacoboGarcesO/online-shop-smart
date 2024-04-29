@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription, tap } from 'rxjs';
+import { Observable, Subscription, map, tap } from 'rxjs';
 import { IUser } from '../../core/models/user.model';
 import { AuthService } from '../../core/services/auth.service';
 import { AppState } from '../../core/state/app.state';
@@ -18,6 +18,12 @@ export class HeaderAdminContainerFacade {
   //#region Observables
   currentUser$(): Observable<IUser> {
     return this.state.user.currentUser.$();
+  }
+
+  foodsCount$(): Observable<number> {
+    return this.state.food.foods.$().pipe(
+      map((foods) => foods?.reduce((previous, current) => previous + current.quantity, 0))
+    );
   }
   //#endregion
 

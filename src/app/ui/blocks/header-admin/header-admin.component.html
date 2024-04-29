@@ -8,7 +8,18 @@
     <nav class="header__navigation">
       @if (currentUser) {
         <app-profile-picture [picture]="currentUser.photoUrl" [userName]="currentUser.name" />
-        <app-icon class="header__logout" (click)="handleLogOut()" [icon]="'logout'" [size]="25" />
+        
+        @if (isCommerce) {
+          <div class="header__cart-container">
+            <app-icon class="header__icon" (click)="handleLogOut()" [icon]="'shopping-cart'" [size]="25" />
+            
+            @if (foodsCount) {
+              <span class="header__cart">{{foodsCount}}</span>
+            }
+          </div>
+        }
+
+        <app-icon class="header__icon" (click)="handleLogOut()" [icon]="'logout'" [size]="25" />
       }
     </nav>
   </div>

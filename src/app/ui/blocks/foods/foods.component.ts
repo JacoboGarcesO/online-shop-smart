@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FoodComponent } from './food/food.component';
-import { IFood } from '../../../core/models/food.model';
+import { IFood, IFoodCart } from '../../../core/models/food.model';
 
 @Component({
   selector: 'app-foods',
@@ -11,4 +11,12 @@ import { IFood } from '../../../core/models/food.model';
 })
 export class FoodsComponent {
   @Input() foods: IFood[];
+  @Input() title: string;
+  @Input() subtitle: string;
+  @Input() isCommerce: boolean = false;
+  @Output() modifiedFood: EventEmitter<IFoodCart> = new EventEmitter();
+
+  handleModifiedFood(food: IFoodCart): void {
+    this.modifiedFood.emit(food);
+  }
 }

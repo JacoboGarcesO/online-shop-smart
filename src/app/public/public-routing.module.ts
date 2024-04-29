@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PublicGuard } from './public.guard';
 
 const routes: Routes = [
   {
@@ -11,6 +12,12 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./authentication/authentication.module')
       .then((module) => module.AuthenticationModule)
+  },
+  {
+    path: 'commerce',
+    loadChildren: () => import('./commerce/commerce.module')
+      .then((module) => module.CommerceModule),
+    canActivate: [PublicGuard]
   }
 ];
 

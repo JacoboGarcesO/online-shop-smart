@@ -9,6 +9,13 @@
         <p class="food__price">${{food.price}}</p>
         <span class="food__discount">50% OFF</span>
       </div>
+      @if (isCommerce) {
+        <div class="food__actions">
+          <app-icon class="food__action" [icon]="'minus'" [color]="'#000'" [size]="15" (click)="sub()" />
+          {{food.quantity}}
+          <app-icon class="food__action" [icon]="'plus'" [color]="'#000'" [size]="15" (click)="add()" />
+        </div>
+      }
     </div>
   </div>
 </article>

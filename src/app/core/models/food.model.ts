@@ -8,5 +8,11 @@ export interface IFood {
   originalPrice: number;
   stock: number;
   category: string;
+  quantity: number;
   image?: IImage;
+}
+
+export interface IFoodCart {
+  id: number;
+  quantity: number;
 }

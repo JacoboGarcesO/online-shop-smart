@@ -57,7 +57,7 @@ export class AuthenticationContainerFacade {
     this.subscriptions.add(
       this.authService.loginWithGoogle().pipe(
         tap(this.state.user.currentUser.set.bind(this)),
-        tap(() => this.router.navigateByUrl('/')),
+        tap(() => this.router.navigateByUrl('/commerce/all')),
         catchError(this.manageLoginErrors.bind(this))
       ).subscribe()
     );

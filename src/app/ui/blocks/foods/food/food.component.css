@@ -1,7 +1,6 @@
 .food {
   border-radius: 10px;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
 }
 
 .food:hover {
@@ -51,4 +50,24 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.food__actions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.food__action {
+  cursor: pointer;
+
+  .icon {
+    transition: background-color 0.3s;
+  }
+
+  .icon:hover {
+    background-color: #6BAF8D !important;
+  }
 }

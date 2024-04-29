@@ -24,7 +24,6 @@ export class TopProductsContainerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.facade.destroySubscriptions();
-    this.facade.clearState();
   }
 
   private initializeSubscriptions(): void {

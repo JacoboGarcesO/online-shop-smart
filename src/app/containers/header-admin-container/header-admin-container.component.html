@@ -1,1 +1,6 @@
-<app-header-admin [currentUser]="currentUser$ | async" (logOut)="logOut()" />
+<app-header-admin
+  [currentUser]="currentUser$ | async"
+  [isCommerce]="isCommerce"
+  [foodsCount]="foodsCount$ | async"
+  (logOut)="logOut()"
+/>

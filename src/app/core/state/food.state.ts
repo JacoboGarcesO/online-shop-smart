@@ -12,6 +12,7 @@ export class FoodState {
   private isFormVisible$: BehaviorSubject<boolean> = new BehaviorSubject(null);
   private isLoadingTable$: BehaviorSubject<boolean> = new BehaviorSubject(null);
   private isLoadingAction$: BehaviorSubject<boolean> = new BehaviorSubject(null);
+  private category$: BehaviorSubject<string> = new BehaviorSubject(null);
 
   constructor(private readonly factory: StateFactory) { }
 
@@ -21,7 +22,8 @@ export class FoodState {
       currentFood: this.factory.state(this.currentFood$),
       isFormVisible: this.factory.state(this.isFormVisible$),
       isLoadingTable: this.factory.state(this.isLoadingTable$),
-      isLoadingAction: this.factory.state(this.isLoadingAction$)
+      isLoadingAction: this.factory.state(this.isLoadingAction$),
+      category: this.factory.state(this.category$)
     };
   }
 }

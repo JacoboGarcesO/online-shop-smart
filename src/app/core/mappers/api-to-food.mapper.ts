@@ -8,8 +8,9 @@ import { IFood } from '../models/food.model';
 export class ApiToFoodMapper implements IMapperIn<IFood> {
   map(payload: any): IFood {
     return {
-      id: payload.id,
+      id: Number(payload.id),
       name: payload.name,
+      quantity: 0,
       description: payload.description,
       originalPrice: payload.originalPrice,
       price: payload.price,

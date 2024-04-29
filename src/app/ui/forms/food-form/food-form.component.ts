@@ -26,6 +26,7 @@ export class FoodFormComponent implements OnChanges {
 
   foodForm = this.formBuilder.group({
     id: [null],
+    quantity: [null],
     name: [null, [Validators.required]],
     description: [null, [Validators.required]],
     price: [null, [Validators.required]],

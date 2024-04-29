@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IUser } from '../../core/models/user.model';
 import { HeaderAdminContainerFacade } from './header-admin-container.facade';
 import { AsyncPipe } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header-admin-container',
@@ -13,8 +14,16 @@ import { AsyncPipe } from '@angular/common';
 })
 export class HeaderAdminContainerComponent implements OnInit, OnDestroy {
   public currentUser$: Observable<IUser>;
+  public foodsCount$: Observable<number>;
 
-  constructor(private readonly facade: HeaderAdminContainerFacade) { }
+  constructor(
+    private readonly facade: HeaderAdminContainerFacade,
+    private readonly route: ActivatedRoute,
+  ) { }
+
+  get isCommerce(): boolean {
+    return this.route.snapshot.data['isCommerce'];
+  }
 
   ngOnInit(): void {
     this.facade.initSubsciptions();
@@ -31,5 +40,6 @@ export class HeaderAdminContainerComponent implements OnInit, OnDestroy {
 
   private initializeSubscriptions(): void {
     this.currentUser$ = this.facade.currentUser$();
+    this.foodsCount$ = this.facade.foodsCount$();
   }
 }

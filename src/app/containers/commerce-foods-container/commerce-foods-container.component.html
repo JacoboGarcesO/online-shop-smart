@@ -1,0 +1,6 @@
+<app-foods
+  [foods]="foods$ | async"
+  [title]="category$ | async"
+  [isCommerce]="true"
+  (modifiedFood)="handleModifiedFood($event)"
+/>

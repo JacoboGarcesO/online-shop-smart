@@ -26,16 +26,21 @@
   justify-content: space-between;
 }
 
-.header__logout {
+.header__icon {
   cursor: pointer;
-  transition: background-color 0.3s;
   padding: 3px 7px;
   display: block;
   border-radius: 10px;
 }
 
-.header__logout:hover {
-  background-color: #6BAF8D;
+.header__icon {
+  .icon {
+    transition: background-color 0.3s;
+  }
+
+  .icon:hover {
+    background-color: #d8d8d8 !important;
+  }
 }
 
 .header__title {
@@ -48,6 +53,27 @@
   gap: 10px;
   text-decoration: none;
 }
+
+.header__cart-container {
+  position: relative;
+}
+
+.header__cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  border-radius: 50%;
+  color: #FFF;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+
 
 @keyframes enhance-header {
   to {

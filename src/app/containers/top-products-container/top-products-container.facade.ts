@@ -32,10 +32,6 @@ export class TopProductsContainerFacade {
     this.subscriptions.unsubscribe();
   }
 
-  clearState(): void {
-    this.state.food.foods.set(null);
-  }
-
   getFoods(): void {
     this.subscriptions.add(
       this.foodService.getAllWithImage().pipe(

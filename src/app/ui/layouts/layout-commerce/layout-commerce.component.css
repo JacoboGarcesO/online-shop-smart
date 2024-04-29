@@ -1,0 +1,32 @@
+.layout-commerce {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-block: 25px;
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 25px;
+}
+
+.layout-commerce__aside {
+  position: relative;
+  border-right: 0.5px solid #ccc;
+}
+
+.layout-commerce__content {
+  padding-right: 25px;
+}
+
+@media (width <=720px) {
+  .layout-commerce {
+    grid-template-columns: 1fr;
+    padding-inline: 25px;
+  }
+
+  .layout-commerce__aside {
+    border-right: none;
+  }
+
+  .layout-commerce__content {
+    padding-right: 0;
+  }
+}
