@@ -8,9 +8,9 @@ import { IImage } from '../models/image.model';
 export class ApiToImageMapper implements IMapperIn<IImage> {
   map(payload: any): IImage {
     return {
-      id: payload.photos[0].id,
-      src: payload.photos[0].src.medium,
-      alt: payload.photos[0].alt,
+      id: payload.photos[0]?.id,
+      src: payload.photos[0]?.src?.medium,
+      alt: payload.photos[0]?.alt,
     };
   }
 }

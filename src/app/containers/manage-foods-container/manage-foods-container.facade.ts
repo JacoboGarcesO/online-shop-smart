@@ -72,7 +72,6 @@ export class ManageFoodContainerFacade {
 
   pathFood(food: IFood): void {
     this.state.food.isLoadingAction.set(true);
-    console.log(food);
     
     food?.id
       ? this.updateFood(food)
